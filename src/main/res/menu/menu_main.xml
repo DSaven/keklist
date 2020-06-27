@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/personalAd"
+        android:title="Мои объявления" />
+    <item
+        android:id="@+id/mainList"
+        android:title="Главная" />
+    <item
+        android:id="@+id/search"
+        android:title="Поиск" />
+</menu>

@@ -18,6 +18,11 @@ class PersonalAd : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_list)
 
+        addBtn.setOnClickListener {
+            val intent = Intent(this, FormActivity::class.java)
+            startActivity(intent)
+        }
+
         KeklistService.create().getUserAds(Token.token!!)
             .enqueue(object : Callback<List<Ad>>{
                 override fun onFailure(call: Call<List<Ad>>, t: Throwable) {
@@ -33,7 +38,7 @@ class PersonalAd : AppCompatActivity(){
 
                         Toast.makeText(this@PersonalAd, id.toString(), Toast.LENGTH_SHORT).show()
 
-                        //TODO добавить интент для перехода на подробну рекламу после того, как этот додик починит выдачу
+                        //TODO добавить интент для перехода на подробную рекламу после того, как этот додик починит выдачу
                     }
                 }
             })

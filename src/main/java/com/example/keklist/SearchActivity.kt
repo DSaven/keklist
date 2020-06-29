@@ -2,6 +2,8 @@ package com.example.keklist
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.keklist.models.Ad
@@ -42,5 +44,34 @@ class SearchActivity : AppCompatActivity() {
 
                 })
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.mainList -> {
+                val intent = Intent(this, MainListActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.personalAd ->{
+                val intent = Intent(this, PersonalAd::class.java)
+                startActivity(intent)
+            }
+            R.id.search -> {
+                val intent = Intent(this, SearchActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.cab -> {
+                val intent = Intent(this, CabActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

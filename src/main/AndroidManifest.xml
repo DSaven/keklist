@@ -27,6 +27,7 @@
         <activity android:name=".FormActivity"/>
         <activity android:name=".UpdateFormActivity"/>
         <activity android:name=".SearchActivity"/>
+        <activity android:name=".CabActivity"/>
     </application>
 
 </manifest>

@@ -2,12 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/personalAd"
-        android:title="Мои объявления" />
-    <item
         android:id="@+id/mainList"
         android:title="Главная" />
     <item
         android:id="@+id/search"
         android:title="Поиск" />
+    <item
+        android:id="@+id/personalAd"
+        android:title="Мои объявления" />
+    <item
+        android:id="@+id/cab"
+        android:title="Личный кабинет" />
 </menu>

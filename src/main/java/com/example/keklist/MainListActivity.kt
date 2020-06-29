@@ -67,6 +67,10 @@ class MainListActivity : AppCompatActivity() {
                 val intent = Intent(this, SearchActivity::class.java)
                 startActivity(intent)
             }
+            R.id.cab -> {
+                val intent = Intent(this, CabActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

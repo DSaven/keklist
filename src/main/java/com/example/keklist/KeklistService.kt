@@ -31,6 +31,9 @@ interface KeklistService {
     @DELETE ("obyavlenie/{id}")
     fun deleteAd(@Header("Authorization") token: String, @Path("id") id: Int) : Call<FormCallback>
 
+    @POST ("signup")
+    fun createUser(@Body user: SignUpModel) : Call<FormCallback>
+
     companion object Factory {
         fun create(): KeklistService{
 

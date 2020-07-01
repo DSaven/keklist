@@ -38,7 +38,9 @@ class PersonalAd : AppCompatActivity(){
 
                         Toast.makeText(this@PersonalAd, id.toString(), Toast.LENGTH_SHORT).show()
 
-                        //TODO добавить интент для перехода на подробную рекламу после того, как этот додик починит выдачу
+                        val intent = Intent(this@PersonalAd, AdActivity::class.java)
+                        intent.putExtra("id", id)
+                        startActivity(intent)
                     }
                 }
             })

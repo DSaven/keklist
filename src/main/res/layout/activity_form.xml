@@ -91,7 +91,7 @@
             android:layout_marginRight="36dp"
             android:ems="10"
             android:hint="Цена"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

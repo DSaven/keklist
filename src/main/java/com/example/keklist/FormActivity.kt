@@ -23,18 +23,19 @@ class FormActivity : AppCompatActivity() {
             finish()
         }
 
-        saveBtn.isClickable = titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && phoneNum.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()
+//        saveBtn.isEnabled = titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && phoneNum.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()
+//        saveBtn.isClickable = titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && phoneNum.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()
 
         saveBtn.setOnClickListener {
 
-            var categoryId: Int = if (services.isSelected)
+            var categoryId: Int = if (servicesBtn.isSelected)
                 2
             else
                 1
 
             KeklistService.create().postAd(
                 Token.token.toString(),
-                AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString(), phoneNum.text.toString())
+                AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString())
             )
                 .enqueue(object : Callback<FormCallback>{
                     override fun onFailure(call: Call<FormCallback>, t: Throwable) {

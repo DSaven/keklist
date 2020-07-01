@@ -46,9 +46,10 @@ class AdActivity : AppCompatActivity() {
                             override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
                                 val user = response.body()!!
 
-                                if (user.access_id == 1 || user.name == ad.user_name)
+                                if (user.access_id == 1 || user.name == ad.user_name) {
                                     changeBtn.visibility = View.VISIBLE
                                     deleteBtn.visibility = View.VISIBLE
+                                }
 
                                 deleteBtn.setOnClickListener {
                                     KeklistService.create().deleteAd(Token.token.toString(), ad.id)
@@ -65,7 +66,6 @@ class AdActivity : AppCompatActivity() {
                                                 response: Response<FormCallback>
                                             ) {
                                                 Toast.makeText(this@AdActivity, response.body()!!.status, Toast.LENGTH_SHORT).show()
-                                                //TODO ПРОВЕРИТЬ УДАЛЕНИЕ
                                                 val intent = Intent(this@AdActivity, MainListActivity::class.java)
                                                 startActivity(intent)
                                             }

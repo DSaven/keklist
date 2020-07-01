@@ -1,5 +1,6 @@
 package com.example.keklist
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        registerBtn.isClickable = name.text.isNotBlank() && login.text.isNotBlank() && password.text.isNotBlank() && password.text.toString() == passwordRep.text.toString()
+//        registerBtn.isClickable = name.text.isNotBlank() && login.text.isNotBlank() && password.text.isNotBlank() && password.text.toString() == passwordRep.text.toString()
 
         cancelBtn.setOnClickListener {
             finish()
@@ -23,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
 
         registerBtn.setOnClickListener {
 
-            KeklistService.create().createUser(SignUpModel(login.text.toString(), name.text.toString(), password.text.toString(), passwordRep.text.toString()))
+            KeklistService.create().createUser(SignUpModel(login.text.toString(), name.text.toString(), password.text.toString(), passwordRep.text.toString(), phone.text.toString()))
                 .enqueue(object : Callback<FormCallback> {
                     override fun onFailure(call: Call<FormCallback>, t: Throwable) {
                         Toast.makeText(this@SignUpActivity, t.message, Toast.LENGTH_SHORT).show()

@@ -2,7 +2,6 @@ package com.example.keklist
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -27,6 +26,8 @@ class CabActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
                     nameData.text = response.body()!!.name
+                    userNumberData.text = response.body()!!.phone_number
+
 
                     if (response.body()!!.access_id == 1)
                         adminData.text = "Админ"

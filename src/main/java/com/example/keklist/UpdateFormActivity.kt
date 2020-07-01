@@ -1,6 +1,5 @@
 package com.example.keklist
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -34,22 +33,24 @@ class UpdateFormActivity : AppCompatActivity() {
                     description.setText(ad.description)
                     imgURL.setText(ad.img)
                     price.setText(ad.price.toString())
-                    phoneNum.setText(ad.phone_number)
 
                     if (ad.category == "Товары")
-                        goods.isChecked = true
+                        goodsBtn.isChecked = true
                     else
-                        services.isChecked = true
+                        servicesBtn.isChecked = true
+
+//                    saveBtn.isEnabled = titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && phoneNum.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()
+//                    saveBtn.isClickable = titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && phoneNum.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()
 
                     saveBtn.setOnClickListener {
 
-                        var categoryId: Int = if (services.isSelected)
+                        var categoryId: Int = if (servicesBtn.isSelected)
                             2
                         else
                             1
 
                         KeklistService.create().updateAd(Token.token.toString(), id,
-                        AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString(), phoneNum.text.toString())
+                        AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString())
                         )
                             .enqueue(object : Callback<FormCallback>{
                                 override fun onFailure(call: Call<FormCallback>, t: Throwable) {

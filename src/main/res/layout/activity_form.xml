@@ -47,23 +47,6 @@
             app:layout_constraintTop_toBottomOf="@+id/titleAd" />
 
         <EditText
-            android:id="@+id/phoneNum"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginRight="36dp"
-            android:ems="10"
-            android:hint="Номер телефона"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-        <EditText
             android:id="@+id/description"
             android:layout_width="0dp"
             android:layout_height="80dp"
@@ -78,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneNum" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <EditText
             android:id="@+id/price"
@@ -128,14 +111,14 @@
             app:layout_constraintTop_toBottomOf="@+id/imgURL">
 
             <RadioButton
-                android:id="@+id/goods"
+                android:id="@+id/goodsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Товары" />
 
             <RadioButton
-                android:id="@+id/services"
+                android:id="@+id/servicesBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Услуги" />

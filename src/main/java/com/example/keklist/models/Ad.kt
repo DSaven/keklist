@@ -11,5 +11,6 @@ data class Ad(
     @SerializedName("img") val img: String,
     @SerializedName("user_id") val user_id: Int,
     @SerializedName("user_name") val user_name: String,
-    @SerializedName("category") val category: String
+    @SerializedName("category") val category: String,
+    @SerializedName("phone_number") val phone_number: String
 )

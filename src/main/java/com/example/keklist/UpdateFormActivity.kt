@@ -27,11 +27,16 @@ class UpdateFormActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<Ad>, response: Response<Ad>) {
                     val ad = response.body()!!
 
-                    //TODO ДОБАВИТЬ КАТЕГОРИИ
                     titleAd.setText(ad.title)
                     description.setText(ad.description)
                     imgURL.setText(ad.img)
                     price.setText(ad.price.toString())
+                    phoneNum.setText(ad.phone_number)
+
+                    if (ad.category == "Товары")
+                        goods.isChecked = true
+                    else
+                        services.isChecked = true
 
                     saveBtn.setOnClickListener {
                         //TODO ДОБАВИТЬ МЕТОД АПДЕЙТА

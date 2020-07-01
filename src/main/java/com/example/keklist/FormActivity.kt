@@ -8,6 +8,8 @@ import com.example.keklist.models.AdToSend
 import com.example.keklist.models.FormCallback
 import com.example.keklist.models.Token
 import kotlinx.android.synthetic.main.activity_form.*
+import kotlinx.android.synthetic.main.activity_form.description
+import kotlinx.android.synthetic.main.activity_form.price
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,11 +23,18 @@ class FormActivity : AppCompatActivity() {
             finish()
         }
 
-        //TODO ДОБАВИТЬ КАТЕГОРИИ
+        saveBtn.isClickable = titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && phoneNum.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()
+
         saveBtn.setOnClickListener {
+
+            var categoryId: Int = if (services.isSelected)
+                2
+            else
+                1
+
             KeklistService.create().postAd(
                 Token.token.toString(),
-                AdToSend(titleAd.text.toString().trim(), 1, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString())
+                AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString(), phoneNum.text.toString())
             )
                 .enqueue(object : Callback<FormCallback>{
                     override fun onFailure(call: Call<FormCallback>, t: Throwable) {

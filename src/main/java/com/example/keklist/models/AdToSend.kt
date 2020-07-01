@@ -5,5 +5,6 @@ data class AdToSend(
     val category_id: Int,
     val description: String,
     val price: Int,
-    val img: String
+    val img: String,
+    val phone_number: String
 )

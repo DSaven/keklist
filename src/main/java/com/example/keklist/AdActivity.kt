@@ -32,6 +32,7 @@ class AdActivity : AppCompatActivity() {
                     adTitle.text = ad.title
                     description.text = ad.description
                     price.text = ad.price.toString()
+                    phoneNum.text = ad.phone_number
                     Glide.with(this@AdActivity)
                         .load(ad.img)
                         .into(image)

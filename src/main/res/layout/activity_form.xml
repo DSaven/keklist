@@ -1,93 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/titleAd"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
-        android:ems="10"
-        android:hint="Название товара"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/imgURL"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:ems="10"
-        android:hint="URL картинки"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleAd" />
 
-    <EditText
-        android:id="@+id/price"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:ems="10"
-        android:hint="Цена"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
 
-    <EditText
-        android:id="@+id/description"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginRight="37dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgURL" />
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="309dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="72dp"
-        android:text="Сохранить"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price" />
 
-    <Button
-        android:id="@+id/cancelBtn"
-        android:layout_width="311dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="28dp"
-        android:text="Отмена"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveBtn" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/titleAd"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginRight="37dp"
+            android:ems="10"
+            android:hint="Название товара"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/imgURL"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:ems="10"
+            android:hint="URL картинки"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleAd" />
+
+        <EditText
+            android:id="@+id/phoneNum"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:ems="10"
+            android:hint="Номер телефона"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginRight="37dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNum" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:ems="10"
+            android:hint="Цена"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="309dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="72dp"
+            android:text="Сохранить"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="311dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="28dp"
+            android:text="Отмена"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveBtn" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="137dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.131"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgURL">
+
+            <RadioButton
+                android:id="@+id/goods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Товары" />
+
+            <RadioButton
+                android:id="@+id/services"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Услуги" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

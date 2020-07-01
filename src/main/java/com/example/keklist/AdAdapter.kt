@@ -21,7 +21,6 @@ class AdAdapter (private val context: Context, private val data: List<Ad>): Base
 
         val nameView = rowView.findViewById(R.id.name) as TextView
         val priceView = rowView.findViewById(R.id.price) as TextView
-        val imgView = rowView.findViewById(R.id.imageView) as ImageView
 
         nameView.text = getItem(position).title
         priceView.text = getItem(position).price.toString()

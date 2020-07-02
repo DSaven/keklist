@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (!Token.token.isNullOrEmpty()) {
+            val intent = Intent(this@MainActivity, MainListActivity::class.java)
+            startActivity(intent)
+        }
+
         signupBtn.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)

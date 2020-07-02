@@ -37,50 +37,54 @@ class AdActivity : AppCompatActivity() {
                         .load(ad.img)
                         .into(image)
 
-                    KeklistService.create().getUser(Token.token!!)
-                        .enqueue(object : Callback<UserInfo> {
-                            override fun onFailure(call: Call<UserInfo>, t: Throwable) {
-                                Toast.makeText(this@AdActivity, t.message, Toast.LENGTH_SHORT).show()
-                            }
 
-                            override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
-                                val user = response.body()!!
-
-                                if (user.access_id == 1 || user.name == ad.user_name) {
-                                    changeBtn.visibility = View.VISIBLE
-                                    deleteBtn.visibility = View.VISIBLE
+                    if(!Token.token.isNullOrEmpty()){
+                        KeklistService.create().getUser(Token.token!!)
+                            .enqueue(object : Callback<UserInfo> {
+                                override fun onFailure(call: Call<UserInfo>, t: Throwable) {
+                                    Toast.makeText(this@AdActivity, t.message, Toast.LENGTH_SHORT).show()
                                 }
 
-                                deleteBtn.setOnClickListener {
-                                    KeklistService.create().deleteAd(Token.token.toString(), ad.id)
-                                        .enqueue(object : Callback<FormCallback>{
-                                            override fun onFailure(
-                                                call: Call<FormCallback>,
-                                                t: Throwable
-                                            ) {
-                                                Toast.makeText(this@AdActivity, t.message, Toast.LENGTH_SHORT).show()
-                                            }
+                                override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
+                                    val user = response.body()!!
 
-                                            override fun onResponse(
-                                                call: Call<FormCallback>,
-                                                response: Response<FormCallback>
-                                            ) {
-                                                Toast.makeText(this@AdActivity, response.body()!!.status, Toast.LENGTH_SHORT).show()
-                                                val intent = Intent(this@AdActivity, MainListActivity::class.java)
-                                                startActivity(intent)
-                                            }
-                                        })
+                                    if (user.access_id == 1 || user.name == ad.user_name) {
+                                        changeBtn.visibility = View.VISIBLE
+                                        deleteBtn.visibility = View.VISIBLE
+                                    }
+
+                                    deleteBtn.setOnClickListener {
+                                        KeklistService.create().deleteAd(Token.token.toString(), ad.id)
+                                            .enqueue(object : Callback<FormCallback>{
+                                                override fun onFailure(
+                                                    call: Call<FormCallback>,
+                                                    t: Throwable
+                                                ) {
+                                                    Toast.makeText(this@AdActivity, t.message, Toast.LENGTH_SHORT).show()
+                                                }
+
+                                                override fun onResponse(
+                                                    call: Call<FormCallback>,
+                                                    response: Response<FormCallback>
+                                                ) {
+                                                    Toast.makeText(this@AdActivity, response.body()!!.status, Toast.LENGTH_SHORT).show()
+                                                    val intent = Intent(this@AdActivity, MainListActivity::class.java)
+                                                    startActivity(intent)
+                                                }
+                                            })
+                                    }
+
+                                    changeBtn.setOnClickListener {
+                                        Toast.makeText(this@AdActivity, id.toString(), Toast.LENGTH_SHORT).show()
+
+                                        val intent = Intent(this@AdActivity, UpdateFormActivity::class.java)
+                                        intent.putExtra("id", id)
+                                        startActivity(intent)
+                                    }
                                 }
+                            })
+                    }
 
-                                changeBtn.setOnClickListener {
-                                    Toast.makeText(this@AdActivity, id.toString(), Toast.LENGTH_SHORT).show()
-
-                                    val intent = Intent(this@AdActivity, UpdateFormActivity::class.java)
-                                    intent.putExtra("id", id)
-                                    startActivity(intent)
-                                }
-                            }
-                        })
                 }
             })
     }

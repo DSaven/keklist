@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.keklist.models.Ad
+import com.example.keklist.models.Token
 import kotlinx.android.synthetic.main.activity_main_list.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,6 +46,7 @@ class MainListActivity : AppCompatActivity() {
 
             })
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater

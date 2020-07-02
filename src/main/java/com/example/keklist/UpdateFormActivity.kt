@@ -44,28 +44,31 @@ class UpdateFormActivity : AppCompatActivity() {
 
                     saveBtn.setOnClickListener {
 
-                        var categoryId: Int = if (servicesBtn.isSelected)
-                            2
-                        else
-                            1
+                        if (titleAd.text.isNotBlank() && imgURL.text.isNotBlank() && description.text.isNotBlank() && price.text.isNotBlank()) {
+                            var categoryId: Int = if (servicesBtn.isSelected)
+                                2
+                            else
+                                1
 
-                        KeklistService.create().updateAd(Token.token.toString(), id,
-                        AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString())
-                        )
-                            .enqueue(object : Callback<FormCallback>{
-                                override fun onFailure(call: Call<FormCallback>, t: Throwable) {
-                                    Toast.makeText(this@UpdateFormActivity, t.message, Toast.LENGTH_SHORT).show()
-                                }
+                            KeklistService.create().updateAd(Token.token.toString(), id,
+                                AdToSend(titleAd.text.toString().trim(), categoryId, description.text.toString(), price.text.toString().toInt(), imgURL.text.toString())
+                            )
+                                .enqueue(object : Callback<FormCallback>{
+                                    override fun onFailure(call: Call<FormCallback>, t: Throwable) {
+                                        Toast.makeText(this@UpdateFormActivity, t.message, Toast.LENGTH_SHORT).show()
+                                    }
 
-                                override fun onResponse(
-                                    call: Call<FormCallback>,
-                                    response: Response<FormCallback>
-                                ) {
-                                    Toast.makeText(this@UpdateFormActivity, response.body()!!.status, Toast.LENGTH_SHORT).show()
-                                    val intent = Intent(this@UpdateFormActivity, MainListActivity::class.java)
-                                    startActivity(intent)
-                                }
-                            })
+                                    override fun onResponse(
+                                        call: Call<FormCallback>,
+                                        response: Response<FormCallback>
+                                    ) {
+                                        Toast.makeText(this@UpdateFormActivity, response.body()!!.status, Toast.LENGTH_SHORT).show()
+                                        val intent = Intent(this@UpdateFormActivity, MainListActivity::class.java)
+                                        startActivity(intent)
+                                    }
+                                })
+                        } else
+                            Toast.makeText(this@UpdateFormActivity, "Часть полей незаполнены", Toast.LENGTH_SHORT).show()
                     }
                 }
             })

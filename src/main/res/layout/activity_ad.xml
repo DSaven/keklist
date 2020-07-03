@@ -9,6 +9,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         tools:context=".MainActivity">
 
         <TextView
@@ -119,10 +120,14 @@
 
         <Button
             android:id="@+id/changeBtn"
+            style="@style/AppTheme"
             android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Изменить"
+            android:background="@android:color/holo_blue_light"
+            android:text="ИЗМЕНИТЬ"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
@@ -134,7 +139,10 @@
             android:layout_width="172dp"
             android:layout_height="45dp"
             android:layout_marginTop="16dp"
+            android:background="@android:color/holo_blue_dark"
             android:text="Удалить"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -50,8 +50,7 @@ class StartListActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
 
                         val data = response.body()!!.filter {
-                            it.title.trim().toLowerCase() == searchTxt.text.toString().trim()
-                                .toLowerCase()
+                            it.title.trim().toLowerCase().contains(searchTxt.text.toString().trim().toLowerCase())
                         }
 
                         val adapter = AdAdapter(this@StartListActivity, data)

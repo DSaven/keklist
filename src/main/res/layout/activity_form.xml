@@ -4,13 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp">
 
 
         <EditText
@@ -85,7 +83,10 @@
             android:layout_width="309dp"
             android:layout_height="70dp"
             android:layout_marginTop="72dp"
+            android:background="@android:color/holo_blue_light"
             android:text="Сохранить"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/price" />
@@ -95,7 +96,10 @@
             android:layout_width="311dp"
             android:layout_height="53dp"
             android:layout_marginTop="28dp"
+            android:background="@android:color/holo_blue_dark"
             android:text="Отмена"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/saveBtn" />

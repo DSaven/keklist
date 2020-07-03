@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
 import com.bumptech.glide.Glide
 import com.example.keklist.models.Ad
@@ -32,10 +33,11 @@ class AdActivity : AppCompatActivity() {
                     val ad = response.body()!!
                     adTitle.text = ad.title
                     description.text = ad.description
-                    price.text = ad.price.toString()
+                    price.text = ad.price.toString() + " руб."
                     phoneNum.text = ad.phone_number
-                    Glide.with(this@AdActivity)
+                    GlideApp.with(this@AdActivity)
                         .load(ad.img)
+                        .error(ContextCompat.getDrawable(this@AdActivity, R.drawable.errorimg))
                         .into(image)
 
 

@@ -23,7 +23,7 @@ class AdAdapter (private val context: Context, private val data: List<Ad>): Base
         val priceView = rowView.findViewById(R.id.price) as TextView
 
         nameView.text = getItem(position).title
-        priceView.text = getItem(position).price.toString()
+        priceView.text = getItem(position).price.toString() + " руб."
 
         return rowView
     }

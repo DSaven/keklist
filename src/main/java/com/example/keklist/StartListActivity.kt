@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.keklist.models.Ad
 import kotlinx.android.synthetic.main.activity_main_list.*
+import kotlinx.android.synthetic.main.activity_main_list.listView
+import kotlinx.android.synthetic.main.activity_search.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,10 +17,10 @@ import retrofit2.Response
 class StartListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start_list)
+        setContentView(R.layout.activity_search)
 
         KeklistService.create().getAllAds()
-            .enqueue(object : Callback<List<Ad>>{
+            .enqueue(object : Callback<List<Ad>> {
                 override fun onFailure(call: Call<List<Ad>>, t: Throwable) {
                     Toast.makeText(this@StartListActivity, t.message, Toast.LENGTH_SHORT).show()
                 }
@@ -27,7 +29,7 @@ class StartListActivity : AppCompatActivity() {
                     val adapter = AdAdapter(this@StartListActivity, response.body()!!)
                     listView.adapter = adapter
 
-                    listView.setOnItemClickListener {parent, view, position, id ->
+                    listView.setOnItemClickListener { parent, view, position, id ->
                         val id = adapter.getItem(position).id
 
                         val intent = Intent(this@StartListActivity, AdActivity::class.java)
@@ -37,6 +39,87 @@ class StartListActivity : AppCompatActivity() {
                 }
 
             })
+
+        searchBtn.setOnClickListener {
+            KeklistService.create().getAllAds()
+                .enqueue(object : Callback<List<Ad>> {
+                    override fun onFailure(call: Call<List<Ad>>, t: Throwable) {
+                        Toast.makeText(this@StartListActivity, t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
+
+                        val data = response.body()!!.filter {
+                            it.title.trim().toLowerCase() == searchTxt.text.toString().trim()
+                                .toLowerCase()
+                        }
+
+                        val adapter = AdAdapter(this@StartListActivity, data)
+                        listView.adapter = adapter
+
+                        listView.setOnItemClickListener { parent, view, position, id ->
+                            val id = adapter.getItem(position).id
+
+                            val intent = Intent(this@StartListActivity, AdActivity::class.java)
+                            intent.putExtra("id", id)
+                            startActivity(intent)
+                        }
+                    }
+
+                })
+        }
+
+        goodsBtn.setOnClickListener {
+            KeklistService.create().getAllAds()
+                .enqueue(object : Callback<List<Ad>> {
+                    override fun onFailure(call: Call<List<Ad>>, t: Throwable) {
+                        Toast.makeText(this@StartListActivity, t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
+
+                        val data = response.body()!!.filter { it.category == "Товары" }
+
+                        val adapter = AdAdapter(this@StartListActivity, data)
+                        listView.adapter = adapter
+
+                        listView.setOnItemClickListener { parent, view, position, id ->
+                            val id = adapter.getItem(position).id
+
+                            val intent = Intent(this@StartListActivity, AdActivity::class.java)
+                            intent.putExtra("id", id)
+                            startActivity(intent)
+                        }
+                    }
+
+                })
+        }
+
+        servicesBtn.setOnClickListener {
+            KeklistService.create().getAllAds()
+                .enqueue(object : Callback<List<Ad>> {
+                    override fun onFailure(call: Call<List<Ad>>, t: Throwable) {
+                        Toast.makeText(this@StartListActivity, t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
+
+                        val data = response.body()!!.filter { it.category == "Услуги" }
+
+                        val adapter = AdAdapter(this@StartListActivity, data)
+                        listView.adapter = adapter
+
+                        listView.setOnItemClickListener { parent, view, position, id ->
+                            val id = adapter.getItem(position).id
+
+                            val intent = Intent(this@StartListActivity, AdActivity::class.java)
+                            intent.putExtra("id", id)
+                            startActivity(intent)
+                        }
+                    }
+
+                })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

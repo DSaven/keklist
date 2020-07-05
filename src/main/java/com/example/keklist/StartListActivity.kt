@@ -50,7 +50,7 @@ class StartListActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
 
                         val data = response.body()!!.filter {
-                            it.title.trim().toLowerCase().contains(searchTxt.text.toString().trim().toLowerCase())
+                            it.title.doesContain(searchTxt.text.toString())
                         }
 
                         val adapter = AdAdapter(this@StartListActivity, data)
@@ -77,7 +77,7 @@ class StartListActivity : AppCompatActivity() {
 
                     override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
 
-                        val data = response.body()!!.filter { it.category == "Товары" }
+                        val data = response.body()!!.filter { it.category.isGoods() }
 
                         val adapter = AdAdapter(this@StartListActivity, data)
                         listView.adapter = adapter
@@ -103,7 +103,7 @@ class StartListActivity : AppCompatActivity() {
 
                     override fun onResponse(call: Call<List<Ad>>, response: Response<List<Ad>>) {
 
-                        val data = response.body()!!.filter { it.category == "Услуги" }
+                        val data = response.body()!!.filter { it.category.isServices() }
 
                         val adapter = AdAdapter(this@StartListActivity, data)
                         listView.adapter = adapter

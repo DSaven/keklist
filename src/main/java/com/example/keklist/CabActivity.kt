@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.keklist.models.Token
@@ -33,8 +34,16 @@ class CabActivity : AppCompatActivity() {
                         adminData.text = "Админ"
                     else
                         adminData.text = "Пользователь"
+
+                    if (response.body()!!.access_id != 1)
+                        addAdmin.visibility = View.INVISIBLE
                 }
             })
+
+        addAdmin.setOnClickListener {
+            val intent = Intent(this, AddAdminActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -37,6 +37,9 @@ interface KeklistService {
     @POST ("signup")
     fun createUser(@Body user: SignUpModel) : Call<FormCallback>
 
+    @POST ("createAdmin")
+    fun createAdmin(@Header("Authorization") token: String, @Body user: SignUpModel) : Call<FormCallback>
+
     companion object Factory {
         fun create(): KeklistService{
 

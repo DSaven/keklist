@@ -84,7 +84,7 @@
         android:id="@+id/addAdmin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_dark"
+        android:background="#4663CC"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:text="Добавить админа"

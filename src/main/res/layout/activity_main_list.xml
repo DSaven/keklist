@@ -21,7 +21,7 @@
         android:id="@+id/addBtn"
         android:layout_width="0dp"
         android:layout_height="63dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="#4663CC"
         android:text="Добавить запись"
         android:textColor="@android:color/background_light"
         android:textStyle="bold"
